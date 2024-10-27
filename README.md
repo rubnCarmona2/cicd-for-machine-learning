@@ -1,2 +1,11 @@
-# cicd-for-machine-learning
-Beginner's guide to automating training, evaluation and deploying models using github actions
+---
+title: Drug Classification
+emoji: 💊
+colorFrom: yellow
+colorTo: red
+sdk: gradio
+sdk_version: 4.16.0
+app_file: drug_app.py
+pinned: false
+license: apache-2.0
+---

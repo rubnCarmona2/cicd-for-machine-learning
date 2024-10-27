@@ -41,7 +41,7 @@ accuracy = accuracy_score(y_test, predictions)
 f1 = f1_score(y_test, predictions, average="macro")
 
 with open("Results/metrics.txt", "w") as outfile:
-    outfile.write(f"\nAccuracy = {accuracy.round(2)}, F1 Score = {f1.round(2)}.")
+    outfile.write(f"\nAccuracy = {accuracy:.2f}, F1 Score = {f1:.2f}.")
 
 cm = confusion_matrix(y_test, predictions, labels=pipe.classes_)
 disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=pipe.classes_)
@@ -49,3 +49,6 @@ disp.plot()
 plt.savefig("Results/model_results.png", dpi=120)
 
 sio.dump(pipe, "Model/drug_pipeline.skops")
+
+unknown_types = sio.get_untrusted_types(file=".Model/drug_pipeline.skops")
+sio.load("Model/drug_pipeline.skops", trusted=unknown_types)
