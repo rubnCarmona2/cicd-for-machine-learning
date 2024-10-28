@@ -1,9 +1,12 @@
-install:    pip install --upgrade pip && \
-    pip install -r requirements.txt
+install:
+	pip install --upgrade pip && \
+	pip install -r requirements.txt
 
-format: black *.py
+format:
+	black *.py
 
-train:  python train.py
+train:
+	python train.py
 
 eval:
 	echo "## Model Metrics" > report.md
